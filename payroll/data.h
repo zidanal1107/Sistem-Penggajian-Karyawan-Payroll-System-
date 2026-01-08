@@ -24,6 +24,10 @@ struct gaji {
     int gaji_bersih;
 };
 
+// fungsi untuk mengelola data karyawan
+void karyawan(struct karyawan* k);
+
+// fungsi untuk membersihkan layar
 void clear_screen(void);
 
 #endif

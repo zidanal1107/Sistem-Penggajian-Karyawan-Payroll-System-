@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include "payroll/data.h"
+
+struct karyawan k = {0};
 
 int main() {
     while (1) {
@@ -16,8 +19,7 @@ int main() {
         
         switch (choice) {
             case 1:
-                // manajemen_karyawan();
-                printf("Manajemen Karyawan dipilih.\n");
+                karyawan(&k);
                 break;
             case 2:
                 // perhitungan_gaji();

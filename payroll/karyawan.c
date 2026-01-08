@@ -6,6 +6,7 @@
 void karyawan(struct karyawan* k) {
     while (1) {
         clear_screen();
+        // input data karyawan
         printf("======= Manajemen Karyawan =======\n");
     
         printf("Masukkan ID Karyawan                    : ");
@@ -31,17 +32,20 @@ void karyawan(struct karyawan* k) {
         printf("Masukkan Gaji Pokok Karyawan            : ");
         scanf("%d", &k->gaji_pokok);
     
-        printf("\nData Karyawan berhasil disimpan:\n");
+        // konfirmasi data
+        printf("\n--- Rincian Karyawan ---\n");
         printf("ID          : %d\n", k->id);
         printf("Nama        : %s\n", k->nama);
         printf("Jabatan     : %s\n", k->jabatan);
         printf("Status      : %s\n", k->status);
         printf("Gaji Pokok  : %d\n", k->gaji_pokok);
-
+        
         printf("\nApakah data sudah benar? (y/n): ");
         char confirm;
         scanf(" %c", &confirm);
         if (confirm == 'y' || confirm == 'Y') {
+            printf("\nData Karyawan berhasil disimpan. Tekan enter untuk lanjut...\n");
+            getchar(); getchar(); // wait for user input
             break;
         }
     }

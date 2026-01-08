@@ -3,6 +3,7 @@
 #include "payroll/data.h"
 
 struct karyawan k = {0};
+struct gaji g = {0};
 
 int main() {
     while (1) {
@@ -22,8 +23,7 @@ int main() {
                 karyawan(&k);
                 break;
             case 2:
-                // perhitungan_gaji();
-                printf("Perhitungan Gaji dipilih.\n");
+                gaji(&g, &k);
                 break;
             case 3:
                 // laporan_gaji();
@@ -37,7 +37,8 @@ int main() {
                 printf("\nKeluar dari program.\n");
                 return 0;
             default:
-                printf("\nPilihan tidak valid. Silakan coba lagi.\n");
+                printf("\nPilihan tidak valid. Silakan coba lagi...\n");
+                getchar(); getchar(); // wait for user input
         }
     }
     

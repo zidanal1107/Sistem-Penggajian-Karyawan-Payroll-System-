@@ -27,6 +27,9 @@ struct gaji {
 // fungsi untuk mengelola data karyawan
 void karyawan(struct karyawan* k);
 
+// fungsi untuk menghitung gaji karyawan
+void gaji(struct gaji* g, struct karyawan* k);
+
 // fungsi untuk membersihkan layar
 void clear_screen(void);
 

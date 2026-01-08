@@ -44,7 +44,24 @@ void karyawan(struct karyawan* k) {
         char confirm;
         scanf(" %c", &confirm);
         if (confirm == 'y' || confirm == 'Y') {
-            printf("\nData Karyawan berhasil disimpan. Tekan enter untuk lanjut...\n");
+            fp_karyawan = fopen("karyawan.txt", "a");
+            if (fp_karyawan == NULL) {
+                printf("Gagal membuka file karyawan.txt untuk ditulis.\n");
+                return;
+            }
+
+            fprintf(fp_karyawan, "=============================\n");
+            fprintf(fp_karyawan, "ID        : %d\n", k->id);
+            fprintf(fp_karyawan, "Nama      : %s\n", k->nama);
+            fprintf(fp_karyawan, "Jabatan   : %s\n", k->jabatan);
+            fprintf(fp_karyawan, "Status    : %s\n", k->status);
+            fprintf(fp_karyawan, "Gaji Pokok: %d\n", k->gaji_pokok);
+            fprintf(fp_karyawan, "=============================\n\n");
+
+            fclose(fp_karyawan);
+            
+            printf("\nData karyawan berhasil disimpan di karyawan.txt\n");
+            printf("Tekan enter untuk lanjut...\n");
             getchar(); getchar(); // wait for user input
             break;
         }

@@ -24,6 +24,15 @@ struct gaji {
     int gaji_bersih;
 };
 
+FILE *fp_karyawan; // file pointer untuk data karyawan
+FILE *fp_gaji;     // file pointer untuk data gaji
+FILE *fp_slip;    // file pointer untuk slip gaji
+FILE *fp_laporan; // file pointer untuk laporan gaji
+
+// fungsi untuk laporan
+void laporan(struct karyawan* k,struct gaji* g);
+void cetak_slip(struct karyawan* k,struct gaji* g);
+
 // fungsi untuk mengelola data karyawan
 void karyawan(struct karyawan* k);
 

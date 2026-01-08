@@ -1,4 +1,3 @@
-=============================
 ID Karyawan : 101
 Bulan       : Januari
 Tahun       : 2026
@@ -7,5 +6,22 @@ Absen       : 3
 Tunjangan   : 1000000
 Potongan    : 1071426
 Gaji Bersih : 9928574
-=============================
+
+ID Karyawan : 102
+Bulan       : Januari
+Tahun       : 2026
+Hari Kerja  : 31
+Absen       : 10
+Tunjangan   : 1100000
+Potongan    : 3548380
+Gaji Bersih : 8551620
+
+ID Karyawan : 103
+Bulan       : Februari
+Tahun       : 2026
+Hari Kerja  : 110
+Absen       : 10
+Tunjangan   : 1200000
+Potongan    : 1090900
+Gaji Bersih : 12109100
 

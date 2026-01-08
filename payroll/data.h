@@ -24,14 +24,27 @@ struct gaji {
     int gaji_bersih;
 };
 
+#define MAX 200
+// untuk variable slip gaji
+struct slip_gaji {
+    int id[MAX];
+    char bulan[MAX][20];
+    int tahun[MAX];
+    int hari_kerja[MAX];
+    int absen[MAX];
+    int tunjangan[MAX];
+    int potongan[MAX];
+    int gaji_bersih[MAX];
+};
+
 FILE *fp_karyawan; // file pointer untuk data karyawan
 FILE *fp_gaji;     // file pointer untuk data gaji
 FILE *fp_slip;    // file pointer untuk slip gaji
 FILE *fp_laporan; // file pointer untuk laporan gaji
 
 // fungsi untuk laporan
-void laporan(struct karyawan* k,struct gaji* g);
-void cetak_slip(struct karyawan* k,struct gaji* g);
+void laporan(struct slip_gaji* s);
+void cetak_slip(struct karyawan* k,struct gaji* g, struct slip_gaji* s);
 
 // fungsi untuk mengelola data karyawan
 void karyawan(struct karyawan* k);

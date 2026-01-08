@@ -78,7 +78,6 @@ void gaji(struct gaji* g, struct karyawan* k) {
         }
 
         // tulis di file gaji.txt
-        fprintf(fp_gaji, "=============================\n");
         fprintf(fp_gaji, "ID Karyawan : %d\n", k->id);
         fprintf(fp_gaji, "Bulan       : %s\n", nama_bulan[g->bulan - 1]);
         fprintf(fp_gaji, "Tahun       : %d\n", g->tahun);
@@ -86,8 +85,7 @@ void gaji(struct gaji* g, struct karyawan* k) {
         fprintf(fp_gaji, "Absen       : %d\n", g->absen);
         fprintf(fp_gaji, "Tunjangan   : %d\n", g->tunjangan);
         fprintf(fp_gaji, "Potongan    : %d\n", g->potongan);
-        fprintf(fp_gaji, "Gaji Bersih : %d\n", g->gaji_bersih);
-        fprintf(fp_gaji, "=============================\n\n");
+        fprintf(fp_gaji, "Gaji Bersih : %d\n\n", g->gaji_bersih);
 
         fclose(fp_gaji);
 

@@ -51,13 +51,11 @@ void karyawan(struct karyawan* k) {
             }
 
             // tulis di file karyawan.txt
-            fprintf(fp_karyawan, "=============================\n");
             fprintf(fp_karyawan, "ID        : %d\n", k->id);
             fprintf(fp_karyawan, "Nama      : %s\n", k->nama);
             fprintf(fp_karyawan, "Jabatan   : %s\n", k->jabatan);
             fprintf(fp_karyawan, "Status    : %s\n", k->status);
-            fprintf(fp_karyawan, "Gaji Pokok: %d\n", k->gaji_pokok);
-            fprintf(fp_karyawan, "=============================\n\n");
+            fprintf(fp_karyawan, "Gaji Pokok: %d\n\n", k->gaji_pokok);
 
             fclose(fp_karyawan);
 

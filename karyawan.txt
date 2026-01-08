@@ -1,8 +1,18 @@
-=============================
 ID        : 101
 Nama      : Zidan
 Jabatan   : Engineer
 Status    : Tetap
 Gaji Pokok: 10000000
-=============================
+
+ID        : 102
+Nama      : Al-Ghifari
+Jabatan   : Engineer
+Status    : Tetap
+Gaji Pokok: 11000000
+
+ID        : 103
+Nama      : Muh Zidan
+Jabatan   : Engineer
+Status    : Tetap
+Gaji Pokok: 12000000
 

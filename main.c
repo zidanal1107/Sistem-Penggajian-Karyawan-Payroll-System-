@@ -4,6 +4,7 @@
 
 struct karyawan k = {0};
 struct gaji g = {0};
+struct slip_gaji s = {0};
 
 int main() {
     while (1) {
@@ -26,10 +27,10 @@ int main() {
                 gaji(&g, &k);
                 break;
             case 3:
-                laporan(&k, &g);
+                laporan(&s);
                 break;
             case 4:
-                cetak_slip(&k, &g);
+                cetak_slip(&k, &g, &s);
                 break;
             case 0:
                 printf("\nKeluar dari program.\n");

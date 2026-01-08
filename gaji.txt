@@ -1,0 +1,11 @@
+=============================
+ID Karyawan : 101
+Bulan       : Januari
+Tahun       : 2026
+Hari Kerja  : 28
+Absen       : 3
+Tunjangan   : 1000000
+Potongan    : 1071426
+Gaji Bersih : 9928574
+=============================
+

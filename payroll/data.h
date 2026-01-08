@@ -13,8 +13,8 @@ struct karyawan {
 // data gaji karyawan
 struct gaji {
     int id_karyawan;   // FK
-    int bulan;
     int tahun;
+    int bulan;
 
     int hari_kerja;
     int absen;

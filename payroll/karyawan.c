@@ -50,6 +50,7 @@ void karyawan(struct karyawan* k) {
                 return;
             }
 
+            // tulis di file karyawan.txt
             fprintf(fp_karyawan, "=============================\n");
             fprintf(fp_karyawan, "ID        : %d\n", k->id);
             fprintf(fp_karyawan, "Nama      : %s\n", k->nama);
@@ -59,7 +60,7 @@ void karyawan(struct karyawan* k) {
             fprintf(fp_karyawan, "=============================\n\n");
 
             fclose(fp_karyawan);
-            
+
             printf("\nData karyawan berhasil disimpan di karyawan.txt\n");
             printf("Tekan enter untuk lanjut...\n");
             getchar(); getchar(); // wait for user input

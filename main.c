@@ -26,10 +26,10 @@ int main() {
                 gaji(&g, &k);
                 break;
             case 3:
-                laporan(&g, &k);
+                laporan(&k, &g);
                 break;
             case 4:
-                cetak_slip(&g, &k);
+                cetak_slip(&k, &g);
                 break;
             case 0:
                 printf("\nKeluar dari program.\n");

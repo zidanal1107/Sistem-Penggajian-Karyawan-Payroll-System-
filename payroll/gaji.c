@@ -6,14 +6,20 @@
 void gaji(struct gaji* g, struct karyawan* k) {
     while (1) {
         clear_screen();
-        // Tampilkan informasi karyawan
-        printf("=== Perhitungan Gaji Karyawan ===\n");
-        printf("ID Karyawan     : %d\n", k->id);
-        printf("Nama Karyawan   : %s\n", k->nama);
-        printf("Jabatan         : %s\n", k->jabatan);
-        printf("Status          : %s\n", k->status);
-        printf("Gaji Pokok      : %d\n", k->gaji_pokok);
-        printf("--------------------------------\n");
+        if (!k->id) {
+            printf("Belum ada data karyawan\n");
+            getchar(); getchar();
+            return;
+        } else {
+            // Tampilkan informasi karyawan
+            printf("=== Perhitungan Gaji Karyawan ===\n");
+            printf("ID Karyawan     : %d\n", k->id);
+            printf("Nama Karyawan   : %s\n", k->nama);
+            printf("Jabatan         : %s\n", k->jabatan);
+            printf("Status          : %s\n", k->status);
+            printf("Gaji Pokok      : %d\n", k->gaji_pokok);
+            printf("--------------------------------\n");
+        }
     
         // Input data gaji
         while (1) {
@@ -62,6 +68,8 @@ void gaji(struct gaji* g, struct karyawan* k) {
         printf("Gaji Bersih     : %d\n", g->gaji_bersih);
         printf("---------------------\n");
 
+        char nama_bulan[12][20] = {"Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
+
         fp_gaji = fopen("gaji.txt", "a");
         
         if (fp_gaji == NULL) {
@@ -69,9 +77,10 @@ void gaji(struct gaji* g, struct karyawan* k) {
             return;
         }
 
+        // tulis di file gaji.txt
         fprintf(fp_gaji, "=============================\n");
         fprintf(fp_gaji, "ID Karyawan : %d\n", k->id);
-        fprintf(fp_gaji, "Bulan       : %d\n", g->bulan);
+        fprintf(fp_gaji, "Bulan       : %s\n", nama_bulan[g->bulan - 1]);
         fprintf(fp_gaji, "Tahun       : %d\n", g->tahun);
         fprintf(fp_gaji, "Hari Kerja  : %d\n", g->hari_kerja);
         fprintf(fp_gaji, "Absen       : %d\n", g->absen);

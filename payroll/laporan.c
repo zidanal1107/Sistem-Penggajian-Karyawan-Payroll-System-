@@ -70,12 +70,98 @@ void laporan(struct slip_gaji* s) {
         printf("--------------------------------\n");
     }
 
-    printf("--------------------------------\n");
-
     printf("Tekan enter untuk kembali ke menu...");
     getchar(); getchar();
 }
 
-void cetak_slip(struct karyawan* k,struct gaji* g,struct slip_gaji* s) {
+void cetak_slip(struct slip_gaji* s) {
+    int i, pilih;
+    char line[200];
+    int jml_id = 0;
 
+    fp_karyawan = fopen("karyawan.txt", "r");
+    if (!fp_karyawan) {
+        printf("\nTidak dapat membuka file karyawan.");
+        getchar(); getchar();
+        return;
+    }
+
+    /* === BACA DATA KARYAWAN === */
+    while (fgets(line, sizeof(line), fp_karyawan)) {
+
+        if (sscanf(line, "ID        : %d", &s->id[jml_id]) == 1) {
+
+            fgets(line, sizeof(line), fp_karyawan);
+            sscanf(line, "Nama      : %49[^\n]", s->nama[jml_id]);
+
+            fgets(line, sizeof(line), fp_karyawan);
+            sscanf(line, "Jabatan   : %29[^\n]", s->jabatan[jml_id]);
+
+            fgets(line, sizeof(line), fp_karyawan);
+            sscanf(line, "Status    : %9[^\n]", s->status[jml_id]);
+
+            fgets(line, sizeof(line), fp_karyawan);
+            sscanf(line, "Gaji Pokok: %d", &s->gaji_pokok[jml_id]);
+
+            jml_id++;
+        }
+    }
+    fclose(fp_karyawan);
+
+    if (jml_id == 0) {
+        printf("Data karyawan kosong.\n");
+        getchar(); getchar();
+        return;
+    }
+
+    /* === PILIH KARYAWAN === */
+    while (1) {
+        clear_screen();
+        printf("=== Cetak Slip Gaji ===\n");
+        for (i = 0; i < jml_id; i++) {
+            printf("%d. %s (ID: %d)\n", i + 1, s->nama[i], s->id[i]);
+        }
+
+        printf("Pilih nomor karyawan: ");
+        if (scanf("%d", &pilih) != 1) {
+            while (getchar() != '\n');
+            continue;
+        }
+
+        if (pilih <= 0 || pilih > jml_id) {
+            printf("Pilihan tidak ada.\n");
+            getchar(); getchar();
+        } else {
+            break;
+        }
+    }
+
+    fp_slip = fopen("slip_gaji.txt", "w");
+    if (!fp_slip) {
+        printf("Gagal membuka slip_gaji.txt\n");
+        getchar(); getchar();
+        return;
+    }
+
+    int idx = pilih - 1;
+
+    fprintf(fp_slip, "=============================\n");
+    fprintf(fp_slip, "SLIP GAJI KARYAWAN\n");
+    fprintf(fp_slip, "-----------------------------\n");
+    fprintf(fp_slip, "Nama          : %s\n", s->nama[idx]);
+    fprintf(fp_slip, "ID            : %d\n", s->id[idx]);
+    fprintf(fp_slip, "Jabatan       : %s\n", s->jabatan[idx]);
+    fprintf(fp_slip, "Status        : %s\n", s->status[idx]);
+    fprintf(fp_slip, "Gaji Pokok    : %d\n", s->gaji_pokok[idx]);
+    fprintf(fp_slip, "Tunjangan     : %d\n", s->tunjangan[idx]);
+    fprintf(fp_slip, "Potongan      : %d\n", s->potongan[idx]);
+    fprintf(fp_slip, "-----------------------------\n");
+    fprintf(fp_slip, "Gaji Bersih   : %d\n", s->gaji_bersih[idx]);
+    fprintf(fp_slip, "=============================\n\n");
+
+    fclose(fp_slip);
+
+    printf("\nSlip gaji berhasil dicetak.\n");
+    printf("Tekan enter untuk kembali...");
+    getchar(); getchar();
 }

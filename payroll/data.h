@@ -35,6 +35,10 @@ struct slip_gaji {
     int tunjangan[MAX];
     int potongan[MAX];
     int gaji_bersih[MAX];
+    char nama[MAX][50];
+    char jabatan[MAX][30];
+    char status[MAX][10];
+    int gaji_pokok[MAX];
 };
 
 FILE *fp_karyawan; // file pointer untuk data karyawan
@@ -44,7 +48,7 @@ FILE *fp_laporan; // file pointer untuk laporan gaji
 
 // fungsi untuk laporan
 void laporan(struct slip_gaji* s);
-void cetak_slip(struct karyawan* k,struct gaji* g, struct slip_gaji* s);
+void cetak_slip(struct slip_gaji* s);
 
 // fungsi untuk mengelola data karyawan
 void karyawan(struct karyawan* k);

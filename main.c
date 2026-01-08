@@ -13,7 +13,7 @@ int main() {
         printf("1. Manajemen Karyawan\n");
         printf("2. Perhitungan Gaji\n");
         printf("3. Laporan Gaji\n");
-        printf("4. Cetask Slip Gaji\n");
+        printf("4. Cetak Slip Gaji\n");
         printf("0. Keluar\n");
         printf("Pilih menu: ");
         int choice;
@@ -30,7 +30,7 @@ int main() {
                 laporan(&s);
                 break;
             case 4:
-                cetak_slip(&k, &g, &s);
+                cetak_slip(&s);
                 break;
             case 0:
                 printf("\nKeluar dari program.\n");

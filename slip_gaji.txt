@@ -1,0 +1,14 @@
+=============================
+SLIP GAJI KARYAWAN
+-----------------------------
+Nama          : Al-Ghifari
+ID            : 102
+Jabatan       : Engineer
+Status        : Tetap
+Gaji Pokok    : 11000000
+Tunjangan     : 0
+Potongan      : 0
+-----------------------------
+Gaji Bersih   : 0
+=============================
+

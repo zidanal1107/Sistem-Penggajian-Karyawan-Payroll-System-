@@ -48,7 +48,7 @@ void laporan(struct slip_gaji* s) {
     int i, j;
     int sudah[MAX] = {0};
 
-    printf("========= Laporan Gaji =========\n");
+    printf("--------- Laporan Gaji ---------\n");
 
     for (i = 0; i < jml_id; i++) {
         if (sudah[i]) continue;
@@ -67,9 +67,10 @@ void laporan(struct slip_gaji* s) {
         printf("Bulan                   : %s\n", s->bulan[i]);
         printf("Jumlah Karyawan         : %d\n", jumlah);
         printf("Rekap Pengeluaran Gaji  : %d\n", total);
+        printf("--------------------------------\n");
     }
 
-    printf("================================\n");
+    printf("--------------------------------\n");
 
     printf("Tekan enter untuk kembali ke menu...");
     getchar(); getchar();

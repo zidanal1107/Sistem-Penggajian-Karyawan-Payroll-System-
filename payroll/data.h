@@ -3,6 +3,7 @@
 
 // data karyawan
 struct karyawan {
+    int no;
     int id;            // PK
     char nama[50];
     char jabatan[30];

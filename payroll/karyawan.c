@@ -4,11 +4,14 @@
 #include "data.h"
 
 void karyawan(struct karyawan* k) {
+    static int no_counter = 1; // Static counter for auto-incrementing 'no' field // Added static counter for 'no' field
     while (1) {
         clear_screen();
         // input data karyawan
         printf("======= Manajemen Karyawan =======\n");
-    
+
+        k->no = no_counter++; // Auto-increment 'no' field // Set 'no' to auto-incrementing counter
+
         printf("Masukkan ID Karyawan                    : ");
         scanf("%d", &k->id);
 
@@ -44,22 +47,25 @@ void karyawan(struct karyawan* k) {
         char confirm;
         scanf(" %c", &confirm);
         if (confirm == 'y' || confirm == 'Y') {
-            fp_karyawan = fopen("karyawan.txt", "a");
+            fp_karyawan = fopen("karyawan.csv", "a");
+
             if (fp_karyawan == NULL) {
-                printf("Gagal membuka file karyawan.txt untuk ditulis.\n");
+                printf("Gagal membuka file karyawan.csv untuk ditulis.\n"); // Fixed error message to match actual file extension
                 return;
+            }
+            
+            fseek(fp_karyawan, 0, SEEK_END);
+            long size = ftell(fp_karyawan);
+            if (size == 0) {
+                fprintf(fp_karyawan, "No;ID;Nama;Jabatan;Status;Gaji Pokok\n");
             }
 
             // tulis di file karyawan.txt
-            fprintf(fp_karyawan, "ID        : %d\n", k->id);
-            fprintf(fp_karyawan, "Nama      : %s\n", k->nama);
-            fprintf(fp_karyawan, "Jabatan   : %s\n", k->jabatan);
-            fprintf(fp_karyawan, "Status    : %s\n", k->status);
-            fprintf(fp_karyawan, "Gaji Pokok: %d\n\n", k->gaji_pokok);
+            fprintf(fp_karyawan, "%d;%d;%s;%s;%s;%d\n", k->no,k->id,k->nama,k->jabatan,k->status,k->gaji_pokok);
 
             fclose(fp_karyawan);
 
-            printf("\nData karyawan berhasil disimpan di karyawan.txt\n");
+            printf("\nData karyawan berhasil disimpan di karyawan.csv\n");
             printf("Tekan enter untuk lanjut...\n");
             getchar(); getchar(); // wait for user input
             break;

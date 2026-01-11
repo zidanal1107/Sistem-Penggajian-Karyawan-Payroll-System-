@@ -1,14 +1,16 @@
 =============================
 SLIP GAJI KARYAWAN
 -----------------------------
-Nama          : Al-Ghifari
-ID            : 102
-Jabatan       : Engineer
+Nama          : Zidan
+ID            : 101
+Jabatan       : Software Engineer
 Status        : Tetap
-Gaji Pokok    : 11000000
-Tunjangan     : 0
-Potongan      : 0
+Bulan         : Januari
+Tahun         : 2026
+Gaji Pokok    : 12000000
+Tunjangan     : 1200000
+Potongan      : 1548384
 -----------------------------
-Gaji Bersih   : 0
+Gaji Bersih   : 11651616
 =============================
 

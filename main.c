@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "payroll/data.h"
 
 struct karyawan k = {0};

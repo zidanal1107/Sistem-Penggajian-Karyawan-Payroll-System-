@@ -32,11 +32,14 @@ void gaji(struct gaji* g, struct karyawan* k) {
         printf("Masukkan Tahun                  : ");
         scanf("%d", &g->tahun);
         printf("Masukkan Hari Kerja             : ");
-        scanf("%d", &g->hari_kerja);    
+        scanf("%d", &g->hari_kerja);
+        if (g->hari_kerja <= 0) {
+            printf("Hari kerja harus lebih dari 0.\n");
+            continue; // ulangi input
+        }
         printf("Masukkan Absen (Izin/Absen)     : ");
         scanf("%d", &g->absen);
-        printf("Masukkan Tunjangan              : ");
-        scanf("%d", &g->tunjangan);
+        // Tunjangan dihitung berdasarkan status, tidak perlu input // Removed redundant tunjangan input as it's calculated based on status
 
         // Konfirmasi data
         printf("\nApakah data sudah benar? (y/n): ");
@@ -70,26 +73,26 @@ void gaji(struct gaji* g, struct karyawan* k) {
 
         char nama_bulan[12][20] = {"Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
 
-        fp_gaji = fopen("gaji.txt", "a");
+        fp_gaji = fopen("gaji.csv", "a");
+
+        fseek(fp_gaji, 0, SEEK_END);
+        long size = ftell(fp_gaji);
+        if (size == 0) {
+            fprintf(fp_gaji, "ID;Bulan;Tahun;Hari Kerja;Absen;Tunjangan;Potongan;Gaji Bersih\n");
+        }
         
         if (fp_gaji == NULL) {
-            printf("Gagal membuka file gaji.txt untuk ditulis.\n");
+            printf("Gagal membuka file gaji.csv untuk ditulis.\n");
             return;
         }
 
-        // tulis di file gaji.txt
-        fprintf(fp_gaji, "ID Karyawan : %d\n", k->id);
-        fprintf(fp_gaji, "Bulan       : %s\n", nama_bulan[g->bulan - 1]);
-        fprintf(fp_gaji, "Tahun       : %d\n", g->tahun);
-        fprintf(fp_gaji, "Hari Kerja  : %d\n", g->hari_kerja);
-        fprintf(fp_gaji, "Absen       : %d\n", g->absen);
-        fprintf(fp_gaji, "Tunjangan   : %d\n", g->tunjangan);
-        fprintf(fp_gaji, "Potongan    : %d\n", g->potongan);
-        fprintf(fp_gaji, "Gaji Bersih : %d\n\n", g->gaji_bersih);
+        // tulis di file gaji.csv
+        fprintf(fp_gaji, "%d;%s;%d;%d;%d;%d;%d;%d\n", 
+            k->id,nama_bulan[g->bulan -1],g->tahun,g->hari_kerja,g->absen,g->tunjangan,g->potongan,g->gaji_bersih);
 
         fclose(fp_gaji);
 
-        printf("\nGaji telah dihitung dan disimpan ke file gaji.txt.\n");
+        printf("\nGaji telah dihitung dan disimpan ke file gaji.csv.\n"); // Fixed message to match actual file extension
         printf("Tekan Enter untuk kembali ke menu utama...");
         getchar(); getchar(); // wait for user input
         break;

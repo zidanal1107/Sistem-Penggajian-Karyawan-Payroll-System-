@@ -3,6 +3,25 @@
 #include <string.h>
 #include "data.h"
 
+int get_no_terakhir() {
+    fp_karyawan = fopen("karyawan.csv", "r");
+    char line[256];
+    int no = 0;
+
+    if (fp_karyawan == NULL) return 1;
+
+    // Lewati header
+    fgets(line, sizeof(line), fp_karyawan);
+
+    while (fgets(line, sizeof(line), fp_karyawan)) {
+        sscanf(line, "%d;", &no);
+    }
+
+    fclose(fp_karyawan);
+    return no + 1;
+}
+
+
 void karyawan(struct karyawan* k) {
     static int no_counter = 1; // Static counter for auto-incrementing 'no' field // Added static counter for 'no' field
     while (1) {
@@ -47,21 +66,31 @@ void karyawan(struct karyawan* k) {
         char confirm;
         scanf(" %c", &confirm);
         if (confirm == 'y' || confirm == 'Y') {
+            /* AUTO INCREMENT NO */
+            k->no = get_no_terakhir();
+
             fp_karyawan = fopen("karyawan.csv", "a");
 
             if (fp_karyawan == NULL) {
-                printf("Gagal membuka file karyawan.csv untuk ditulis.\n"); // Fixed error message to match actual file extension
+                printf("Gagal membuka file karyawan.csv untuk ditulis.\n");
                 return;
             }
-            
+
             fseek(fp_karyawan, 0, SEEK_END);
             long size = ftell(fp_karyawan);
+
             if (size == 0) {
                 fprintf(fp_karyawan, "No;ID;Nama;Jabatan;Status;Gaji Pokok\n");
             }
 
-            // tulis di file karyawan.txt
-            fprintf(fp_karyawan, "%d;%d;%s;%s;%s;%d\n", k->no,k->id,k->nama,k->jabatan,k->status,k->gaji_pokok);
+            /* TULIS DATA */
+            fprintf(fp_karyawan, "%d;%d;%s;%s;%s;%d\n",
+                    k->no,
+                    k->id,
+                    k->nama,
+                    k->jabatan,
+                    k->status,
+                    k->gaji_pokok);
 
             fclose(fp_karyawan);
 

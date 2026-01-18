@@ -1,2 +1,4 @@
-ID;Bulan;Tahun;Hari Kerja;Absen;Tunjangan;Potongan;Gaji Bersih
-1;101;Zidan;Software Engineer;Tetap;12000000
+No;ID;Nama;Jabatan;Status;Gaji Pokok
+1;101;Zidan;Admin;Kontrak;6000000
+2;102;Al Ghif;Kasir;Tetap;4000000
+3;103;Ghifar;Admin;Tetap;5000000

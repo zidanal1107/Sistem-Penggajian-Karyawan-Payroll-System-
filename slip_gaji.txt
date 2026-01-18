@@ -1,16 +1,16 @@
 =============================
 SLIP GAJI KARYAWAN
 -----------------------------
-Nama          : Zidan
-ID            : 101
-Jabatan       : Software Engineer
+Nama          : Ghifar
+ID            : 103
+Jabatan       : Admin
 Status        : Tetap
 Bulan         : Januari
 Tahun         : 2026
-Gaji Pokok    : 12000000
-Tunjangan     : 1200000
-Potongan      : 1548384
+Gaji Pokok    : 5000000
+Tunjangan     : 500000
+Potongan      : 666664
 -----------------------------
-Gaji Bersih   : 11651616
+Gaji Bersih   : 4833336
 =============================
 
